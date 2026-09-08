@@ -462,8 +462,11 @@ nav.primary a.cta::before{content:none}
    ============================================================ */
 @media (max-width:768px){
   body{font-size:16.5px}
-  .masthead-title{font-size:clamp(2.6rem,15vw,4rem)}
-  .standfirst{font-size:1.35rem;max-width:32ch}
+  /* oversized italic caps overhang left; nudge the two italic lines
+     clear of the band's overflow clip and keep them aligned to each other */
+  .masthead-eyebrow{padding-left:12px}
+  .masthead-title{font-size:clamp(2.4rem,14vw,4rem);padding-left:12px}
+  .standfirst{font-size:1.35rem;max-width:24ch}
   .section-head{letter-spacing:0.05em}
   .kicker,.leaders .lead-val,.tags li,.colophon-foot,nav.primary a{letter-spacing:0.05em}
   .leaders li{display:block;padding:0.6rem 0}

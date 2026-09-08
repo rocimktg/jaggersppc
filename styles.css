@@ -409,16 +409,30 @@ nav.primary a.cta::before{content:none}
   .do-list > div{grid-template-columns:1fr;gap:0.15rem}
 }
 
-/* ---- About Me: bio + side card / actions ---- */
+/* ---- About Me: bio + a slim right rail; .about-actions/.about-btn reused in Hire Me ---- */
 .about-grid{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 230px;
-  gap:clamp(1.4rem,4vw,2.6rem);
+  grid-template-columns:minmax(0,1fr) minmax(0,180px);
+  gap:clamp(1.6rem,5vw,3.2rem);
   align-items:start;
 }
-.about-bio p + p{margin-top:1rem}
+.about-bio p + p{margin-top:1.15rem}
 
-.about-side{display:flex;flex-direction:column;gap:0.6rem}
+.about-side{padding-top:0.2rem}
+.about-side__item{margin-top:0.5rem;font-size:0.95rem;line-height:1.45;color:var(--sage-ink)}
+.about-side__meta{
+  margin-top:0.25rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-size:0.72rem;
+  color:var(--ochre-ink);
+}
+
+@media (max-width:680px){
+  .about-grid{grid-template-columns:1fr;gap:1.6rem}
+}
+
 .about-actions{display:flex;flex-direction:column;gap:0.5rem}
 .about-btn{
   display:block;
@@ -436,10 +450,6 @@ nav.primary a.cta::before{content:none}
 .about-btn::before{content:"\261E\2009";color:var(--ochre)}
 .about-btn:hover{border-color:var(--ink);color:var(--accent)}
 .about-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-@media (max-width:680px){
-  .about-grid{grid-template-columns:1fr}
-}
 
 /* Tag / pill row — hard-edged boxes */
 .tags{

@@ -34,6 +34,16 @@
     });
   }
 
+  /* --- Sticky nav: show the hairline once the page is scrolled --- */
+  var navbar = document.querySelector('.navbar');
+  if (navbar) {
+    var setStuck = function () {
+      navbar.classList.toggle('is-stuck', window.scrollY > 2);
+    };
+    setStuck();
+    window.addEventListener('scroll', setStuck, { passive: true });
+  }
+
   if (reduce || !('IntersectionObserver' in window)) return;
 
   /* --- Rules drawn on as they enter view --- */

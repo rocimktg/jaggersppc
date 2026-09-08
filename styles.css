@@ -271,23 +271,11 @@ abbr{text-decoration:underline dotted;text-decoration-color:var(--sage-ink);text
   z-index:100;
   background:var(--ground);
   padding:0.7rem 1.25rem;
-  transition:box-shadow .2s ease;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease;
 }
-.navbar > .measure{position:relative}
-/* thin distressed hairline along the bottom edge — fades in once scrolled */
-.navbar::after{
-  content:"";
-  position:absolute;left:0;right:0;bottom:0;
-  height:2.5px;
-  background-color:var(--sage-ink);
-  -webkit-mask-image:var(--rule-thin);mask-image:var(--rule-thin);
-  -webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;
-  -webkit-mask-size:240px 2.5px;mask-size:240px 2.5px;
-  opacity:0;
-  transition:opacity .2s ease;
-}
-.navbar.is-stuck::after{opacity:0.85}
-.navbar.is-stuck{box-shadow:0 10px 22px -18px rgba(26,23,20,0.45)}
+/* straight hairline along the bottom edge — appears once the page is scrolled */
+.navbar.is-stuck{border-bottom-color:rgba(26,23,20,0.22)}
 
 /* ============================================================
    Masthead
@@ -300,7 +288,7 @@ nav.primary a{
   font-family:var(--gothic);
   text-transform:uppercase;
   letter-spacing:0.1em;
-  font-size:0.9rem;
+  font-size:0.82rem;
   text-decoration:none;
 }
 nav.primary a::before{content:"\261E\2009";text-decoration:none;color:var(--ochre)}

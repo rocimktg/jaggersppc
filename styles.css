@@ -457,6 +457,10 @@ nav.primary a.cta::before{content:none}
   color:var(--ochre-ink);
 }
 
+/* trimmed homepage footer — just the copyright line */
+.band--foot{padding-top:1.4rem;padding-bottom:1.4rem}
+.band--foot .colophon-foot{margin-top:0}
+
 /* ============================================================
    Responsive
    ============================================================ */

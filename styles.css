@@ -5,7 +5,8 @@
   --ground:#F7F1E4;
   --ground-2:#F0E8D6;
   --ink:#1A1714;
-  --accent:#E8503A;   /* vermilion — results, the payoff */
+  --accent:#E8503A;   /* vermilion — results, the payoff (large figures & fills only) */
+  --accent-ink:#B83621;/* vermilion dark enough for small text on cream (WCAG AA) */
   --ochre:#D89A2C;    /* editorial furniture — fills & rules */
   --ochre-ink:#8A5911;/* ochre dark enough for uppercase text on cream (WCAG AA) */
   --sage:#9BB0A5;     /* quiet secondary voice — rules & large type */
@@ -254,7 +255,7 @@ h1,h2,h3{margin:0;font-weight:400;line-height:1.05}
 p{margin:0;text-indent:1.5em}
 p:first-of-type,.no-indent{text-indent:0}
 .sc{font-variant:small-caps;letter-spacing:0.035em;color:var(--sage-ink)}
-.fig{color:var(--accent);font-weight:600;font-variant-numeric:lining-nums}
+.fig{color:var(--accent-ink);font-weight:600;font-variant-numeric:lining-nums}
 
 a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:0.22em}
 a:hover{color:var(--accent)}
@@ -526,7 +527,7 @@ nav.primary a.cta::before{content:none}
 .art-num{
   font-family:var(--display);
   font-style:italic;
-  color:var(--accent);
+  color:var(--accent-ink);
   font-variant-numeric:lining-nums;
   margin-right:0.2em;
 }
@@ -714,6 +715,18 @@ nav.primary a.cta::before{content:none}
   color:var(--ochre-ink);
   border-bottom:1.5px solid var(--ochre);
 }
+/* row headers read as body cells, just semantically marked */
+.prose tbody th{font-weight:400}
+.prose caption{
+  caption-side:top;
+  text-align:left;
+  margin-bottom:0.6rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.66rem;
+  color:var(--sage-ink);
+}
 .prose figcaption{
   margin-top:0.5rem;
   font-family:var(--gothic);
@@ -787,7 +800,7 @@ nav.primary a.cta::before{content:none}
 .formula b,.eq b{
   font-weight:400;
   font-style:normal;
-  color:var(--accent);
+  color:var(--accent-ink);
   font-variant:small-caps;
   letter-spacing:0.03em;
 }

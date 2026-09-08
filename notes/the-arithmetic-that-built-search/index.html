@@ -42,7 +42,8 @@
     </nav>
   </div>
 </header>
-<article class="band" id="main">
+<main id="main" tabindex="-1">
+<article class="band">
   <div class="measure">
     <header class="article-head">
       <p class="kicker no-indent">Note &middot; Mechanics</p>
@@ -78,12 +79,13 @@
 
         <figure class="table">
           <table>
+            <caption>Two advertisers competing for one slot over 1,000 impressions</caption>
             <thead>
               <tr><th scope="col">Advertiser</th><th scope="col">Bid</th><th scope="col">CTR</th><th scope="col">Revenue per 1,000 impressions</th></tr>
             </thead>
             <tbody>
-              <tr><td>A</td><td>$4.00</td><td>1%</td><td>$40</td></tr>
-              <tr><td>B</td><td>$2.00</td><td>4%</td><td>$80</td></tr>
+              <tr><th scope="row">A</th><td>$4.00</td><td>1%</td><td>$40</td></tr>
+              <tr><th scope="row">B</th><td>$2.00</td><td>4%</td><td>$80</td></tr>
             </tbody>
           </table>
         </figure>
@@ -110,13 +112,14 @@
 
         <figure class="table">
           <table>
+            <caption>Generalized second-price pricing across three advertisers</caption>
             <thead>
               <tr><th scope="col">Advertiser</th><th scope="col">Bid</th><th scope="col">Quality</th><th scope="col">Ad Rank</th><th scope="col">Position</th><th scope="col">Price paid</th></tr>
             </thead>
             <tbody>
-              <tr><td>A</td><td>$3.00</td><td>8</td><td>24</td><td>1</td><td>20 &divide; 8 + .01 = <strong>$2.51</strong></td></tr>
-              <tr><td>B</td><td>$5.00</td><td>4</td><td>20</td><td>2</td><td>12 &divide; 4 + .01 = <strong>$3.01</strong></td></tr>
-              <tr><td>C</td><td>$2.00</td><td>6</td><td>12</td><td>3</td><td>reserve</td></tr>
+              <tr><th scope="row">A</th><td>$3.00</td><td>8</td><td>24</td><td>1</td><td>20 &divide; 8 + .01 = <strong>$2.51</strong></td></tr>
+              <tr><th scope="row">B</th><td>$5.00</td><td>4</td><td>20</td><td>2</td><td>12 &divide; 4 + .01 = <strong>$3.01</strong></td></tr>
+              <tr><th scope="row">C</th><td>$2.00</td><td>6</td><td>12</td><td>3</td><td>reserve</td></tr>
             </tbody>
           </table>
         </figure>
@@ -171,12 +174,13 @@
 
         <figure class="table">
           <table>
+            <caption>Average versus marginal ROAS when raising the bid</caption>
             <thead>
-              <tr><th scope="col">&nbsp;</th><th scope="col">Clicks</th><th scope="col">CPC</th><th scope="col">Spend</th><th scope="col">Revenue</th><th scope="col">ROAS</th></tr>
+              <tr><td></td><th scope="col">Clicks</th><th scope="col">CPC</th><th scope="col">Spend</th><th scope="col">Revenue</th><th scope="col">ROAS</th></tr>
             </thead>
             <tbody>
-              <tr><td>Current bid</td><td>1,000</td><td>$2.00</td><td>$2,000</td><td>$10,000</td><td>5.0</td></tr>
-              <tr><td>Higher bid</td><td>1,400</td><td>$2.60</td><td>$3,640</td><td>$12,000</td><td>3.3</td></tr>
+              <tr><th scope="row">Current bid</th><td>1,000</td><td>$2.00</td><td>$2,000</td><td>$10,000</td><td>5.0</td></tr>
+              <tr><th scope="row">Higher bid</th><td>1,400</td><td>$2.60</td><td>$3,640</td><td>$12,000</td><td>3.3</td></tr>
             </tbody>
           </table>
         </figure>
@@ -225,6 +229,7 @@
         </nav>
   </div>
 </article>
+</main>
 <footer class="band">
   <div class="measure">
     <p class="colophon-foot no-indent">

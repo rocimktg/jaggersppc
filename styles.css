@@ -1028,7 +1028,9 @@ nav.primary a.cta::before{content:none}
 .contact-lead .about-actions{margin-top:1.5rem}
 
 .avail-tag{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
   margin:0 0 1.1rem;
   padding:0.34rem 0.7rem;
   border:1px solid var(--ochre);
@@ -1041,9 +1043,8 @@ nav.primary a.cta::before{content:none}
 }
 .avail-tag::before{
   content:"";
-  display:inline-block;
+  flex:none;
   width:0.5rem;height:0.5rem;
-  margin-right:0.5rem;
   background:var(--accent);
 }
 

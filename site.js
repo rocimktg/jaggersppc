@@ -44,6 +44,36 @@
     window.addEventListener('scroll', setStuck, { passive: true });
   }
 
+  /* --- Glossary terms: turn the title tooltip into a tap/keyboard toggle --- */
+  Array.prototype.forEach.call(document.querySelectorAll('.term[title]'), function (term) {
+    var def = term.getAttribute('title');
+    term.removeAttribute('title');
+    term.setAttribute('role', 'button');
+    term.setAttribute('tabindex', '0');
+    term.setAttribute('aria-expanded', 'false');
+    var pop = null;
+    var toggle = function () {
+      if (pop) {
+        pop.remove();
+        pop = null;
+        term.setAttribute('aria-expanded', 'false');
+      } else {
+        pop = document.createElement('span');
+        pop.className = 'term-pop';
+        pop.textContent = def;
+        term.insertAdjacentElement('afterend', pop);
+        term.setAttribute('aria-expanded', 'true');
+      }
+    };
+    term.addEventListener('click', toggle);
+    term.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
   if (reduce || !('IntersectionObserver' in window)) return;
 
   /* --- Rules drawn on as they enter view --- */

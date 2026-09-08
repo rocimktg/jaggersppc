@@ -243,13 +243,13 @@ h1,h2,h3{margin:0;font-weight:400;line-height:1.05}
 
 .lever-list{margin:0.9rem 0 0;padding:0;list-style:none}
 .lever-list li{
-  position:relative;
-  padding-left:1.15rem;
+  display:flex;
+  gap:0.6rem;
   margin:0.5rem 0;
   text-indent:0;
   line-height:1.5;
 }
-.lever-list li::before{content:"\2022";position:absolute;left:0.2rem;color:var(--ochre)}
+.lever-list li::before{content:"\2022";flex:none;color:var(--ochre)}
 
 /* engraved "cut" tucked top-right of a case study — ink straight on the stock */
 .case{display:flow-root}
@@ -541,22 +541,34 @@ nav.primary a.cta::before{content:none}
   .leaders .dots{display:none}
   .leaders .lead-val{display:block;margin-top:0.15rem;opacity:0.7}
 
-  /* masthead — one flush-left column, portrait no longer a centred island */
+  /* masthead — one column, portrait centred */
   .masthead-body{gap:1.3rem}
-  .masthead-portrait{justify-self:start;max-width:min(280px,74%)}
+  .masthead-portrait{justify-self:center;max-width:min(320px,84%)}
 
-  /* case cuts become full-width header images — the float does nothing here */
+  /* stack the case, title first, engraving under the meta line */
+  .case{display:flex;flex-direction:column}
+  .case > *{order:2}
+  .case-title,
+  .case > .kicker{order:1}
   .case-figure,
   .case-figure--side,
-  .case-figure--comet{float:none;width:100%;margin:0 0 1.1rem}
-  /* the Comet sign is tall — keep it from eating a whole screen */
-  .case-figure--comet{width:72%}
+  .case-figure--comet{
+    float:none;
+    align-self:center;
+    width:min(82%,20rem);
+    margin:0.4rem 0 1.4rem;
+  }
+  .case-figure--comet{width:min(62%,15rem)}
 
   /* lighten the section seams and tighten the case rhythm for a narrow screen */
   .band::before{height:5px;-webkit-mask-size:240px 5px;mask-size:240px 5px}
   .rule--heavy{height:7px;-webkit-mask-size:240px 7px;mask-size:240px 7px}
   .case + .case{margin-top:2rem;padding-top:2rem}
   .case-stat{margin-bottom:1rem}
+
+  /* nav is tight on phones — drop the pointing hand */
+  nav.primary a::before{content:none}
+  nav.primary{gap:0.9rem 1.15rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
@@ -646,12 +658,26 @@ nav.primary a.cta::before{content:none}
 .prose strong{font-weight:600}
 .prose hr{border:0;margin:2rem 0}
 
-/* inline glossary term — hover for the definition */
+/* inline glossary term — hover on desktop; tap to toggle once site.js upgrades it */
 .term{
   text-decoration:underline dotted;
   text-decoration-color:var(--sage-ink);
   text-underline-offset:0.18em;
   cursor:help;
+}
+.term[role="button"]{cursor:pointer}
+.term[aria-expanded="true"]{color:var(--accent-ink);text-decoration-color:var(--accent-ink)}
+.term:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.term-pop{
+  display:block;
+  margin:0.5rem 0;
+  padding:0.55rem 0.8rem;
+  border-left:2px solid var(--ochre);
+  background:var(--ground-2);
+  font-size:0.9rem;
+  line-height:1.5;
+  color:var(--sage-ink);
+  text-indent:0;
 }
 
 /* elements that break past the reading measure, centred on the page */
@@ -765,6 +791,7 @@ nav.primary a.cta::before{content:none}
 
 /* ---- data tables inside prose ---- */
 .prose figure{margin:2rem 0;text-indent:0}
+.prose figure.table{overflow-x:auto;overscroll-behavior-x:contain}
 .prose table{
   width:100%;
   border-collapse:collapse;
@@ -776,6 +803,8 @@ nav.primary a.cta::before{content:none}
   padding:0.5rem 0.8rem;
   border-bottom:1px solid rgba(26,23,20,0.15);
 }
+/* keep rows on one line so a wide table scrolls rather than crushing */
+.prose td{white-space:nowrap}
 .prose thead th{
   font-family:var(--gothic);
   text-transform:uppercase;
@@ -1035,7 +1064,7 @@ nav.primary a.cta::before{content:none}
   color:var(--sage-ink);
 }
 @media (max-width:600px){
-  .card-grid{gap:0.5rem}
+  .card-grid{grid-template-columns:1fr;gap:0.6rem}
   .art-card{padding:0.7rem 0.7rem 0.75rem}
   .art-card-title{font-size:1.02rem}
   .art-card-desc{font-size:0.8rem;line-height:1.3}

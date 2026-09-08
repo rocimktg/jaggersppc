@@ -129,6 +129,28 @@ h1,h2,h3{margin:0;font-weight:400;line-height:1.05}
   line-height:1.5;
   color:var(--sage-ink);
 }
+.masthead-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:0.45em;
+  margin-top:1.8rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.82rem;
+  color:var(--ink);
+  text-decoration:none;
+}
+.masthead-cta::before{
+  content:"\261F";
+  color:var(--ochre);
+  font-size:1.15em;
+  line-height:1;
+  transition:transform .2s ease;
+}
+.masthead-cta:hover{color:var(--accent)}
+.masthead-cta:hover::before{transform:translateY(2px)}
+.masthead-cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 .section-head{
   font-family:var(--gothic);
@@ -195,6 +217,25 @@ h1,h2,h3{margin:0;font-weight:400;line-height:1.05}
   line-height:1.45;
   color:var(--ochre-ink);
 }
+.case-stat-note{
+  margin:0.55rem 0 0;
+  font-size:0.95rem;
+  line-height:1.5;
+  color:var(--sage-ink);
+}
+
+/* problem / what I did / result subheads */
+.case-step{
+  margin:1.6rem 0 0.45rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.72rem;
+  font-weight:500;
+  color:var(--ochre-ink);
+}
+.case-step + p,
+.case-step + .lever-list{margin-top:0}
 
 /* the three short entries after the featured case */
 .case--compact .case-title{font-size:clamp(1.5rem,3.6vw,1.9rem)}

@@ -4,6 +4,36 @@
   var yr = document.getElementById('yr') || document.querySelector('[data-year]');
   if (yr) yr.textContent = new Date().getFullYear();
 
+  /* --- Contact form: submit in place, swap in a confirmation ---
+     Falls back to a normal POST (Netlify's own success page) without JS. */
+  var form = document.querySelector('form.contact-form');
+  if (form && window.fetch) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var err = form.querySelector('.form-error');
+      if (err) err.hidden = true;
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      fetch(form.getAttribute('action') || '/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        var done = document.createElement('p');
+        done.className = 'form-done';
+        done.setAttribute('role', 'status');
+        done.tabIndex = -1;
+        done.textContent = 'Thanks — your message is in. I’ll get back to you shortly.';
+        form.replaceWith(done);
+        done.focus();
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+        if (err) err.hidden = false;
+      });
+    });
+  }
+
   if (reduce || !('IntersectionObserver' in window)) return;
 
   /* --- Rules drawn on as they enter view --- */

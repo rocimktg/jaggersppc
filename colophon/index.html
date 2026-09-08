@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colophon &mdash; PocketPPC</title>
+<meta name="description" content="How PocketPPC is built: hand-written HTML, one CSS file, a warm apothecary palette, and no build step.">
+<link rel="canonical" href="https://pocketppc.com/colophon/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="band masthead site-head">
+  <div class="measure">
+    <nav class="primary" aria-label="Primary">
+      <a href="/#work">Work</a>
+      <a href="/#writing">Writing</a>
+      <a href="/#contact">Contact</a>
+      <a class="cta" href="mailto:jjaggerstx@gmail.com?subject=Paid%20search%20role">Hire Me</a>
+    </nav>
+  </div>
+</header>
+
+<article class="band" id="main">
+  <div class="measure">
+    <header class="index-head">
+      <h1>Colophon</h1>
+      <p>How this site is built, and why it&rsquo;s built that way.</p>
+    </header>
+    <div class="flow">
+      <p>Hand-written HTML across a handful of pages, one shared CSS file with the whole design-token system in custom properties, and about two kilobytes of vanilla JavaScript &mdash; all of it progressive enhancement. The page works with scripting disabled; the script only adds the rules drawing themselves in and the figures counting up. No framework, no build step, no dependencies.</p>
+      <p><strong>Type.</strong> Playfair Display for display and pull quotes, Oswald for labels and chrome, EB&nbsp;Garamond for body copy. Loaded from Google Fonts with <code>display: swap</code>.</p>
+      <p><strong>Palette.</strong> A warm apothecary set &mdash; aged-paper cream, near-black ink, and three spot colours: vermilion for results and figures, ochre for editorial furniture, sage for the quiet second voice. The distressed rules are tiled SVG strips, masked rather than drawn as borders.</p>
+      <p><strong>Illustrations.</strong> Engraved-style plates set straight on the page stock with a multiply blend, so the white knocks out and the ink sits on the paper.</p>
+    </div>
+  </div>
+</article>
+
+<footer class="band">
+  <div class="measure">
+    <p class="colophon-foot no-indent">
+      <a href="/notes/">Notes</a>
+      <a href="/about/">About</a>
+      <a href="/colophon/">Colophon</a>
+      <a href="/rss.xml">RSS</a>
+      <span>&copy; <span id="yr">2026</span> PocketPPC</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

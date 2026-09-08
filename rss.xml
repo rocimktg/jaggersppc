@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PocketPPC</title>
+    <link>https://pocketppc.com/</link>
+    <description>The history, mechanics, and economics of paid search.</description>
+    <language>en-us</language>
+    <atom:link href="https://pocketppc.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Thu, 03 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>The Arithmetic That Built Search</title>
+      <link>https://pocketppc.com/notes/the-arithmetic-that-built-search/</link>
+      <guid>https://pocketppc.com/notes/the-arithmetic-that-built-search/</guid>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <description>How a handful of equations turned attention into a priced commodity.</description>
+    </item>
+    <item>
+      <title>The Icon That Ate the Internet</title>
+      <link>https://pocketppc.com/notes/the-hamburger-menu/</link>
+      <guid>https://pocketppc.com/notes/the-hamburger-menu/</guid>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <description>How the hamburger menu became mobile’s default door, and why the better-named alternative lost.</description>
+    </item>
+    <item>
+      <title>The Auction After the Click: Privacy, Antitrust, and AI</title>
+      <link>https://pocketppc.com/history/10-the-auction-after-the-click/</link>
+      <guid>https://pocketppc.com/history/10-the-auction-after-the-click/</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>The Machines Take the Wheel: Automation and the Black Box</title>
+      <link>https://pocketppc.com/history/09-the-machines-take-the-wheel/</link>
+      <guid>https://pocketppc.com/history/09-the-machines-take-the-wheel/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>The Yellow Pages Comes Back: Mobile, Local, and Pay-Per-Lead</title>
+      <link>https://pocketppc.com/history/08-the-yellow-pages-comes-back/</link>
+      <guid>https://pocketppc.com/history/08-the-yellow-pages-comes-back/</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>The Second Auction: How Social Learned to Sell Interruption</title>
+      <link>https://pocketppc.com/history/07-the-second-auction/</link>
+      <guid>https://pocketppc.com/history/07-the-second-auction/</guid>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>When PPC Became a Job: The Optimization Decade</title>
+      <link>https://pocketppc.com/history/06-the-optimization-decade/</link>
+      <guid>https://pocketppc.com/history/06-the-optimization-decade/</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>The Land Grab: How Search Became a Three-Company Business</title>
+      <link>https://pocketppc.com/history/05-the-land-grab/</link>
+      <guid>https://pocketppc.com/history/05-the-land-grab/</guid>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>Relevance Beats Money: How Google Rebuilt the Ad Auction</title>
+      <link>https://pocketppc.com/history/04-relevance-beats-money/</link>
+      <guid>https://pocketppc.com/history/04-relevance-beats-money/</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>The Auction: GoTo.com and the Price of a Click</title>
+      <link>https://pocketppc.com/history/03-the-auction/</link>
+      <guid>https://pocketppc.com/history/03-the-auction/</guid>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>The CPM Era: Renting Eyeballs</title>
+      <link>https://pocketppc.com/history/02-cpm-era/</link>
+      <guid>https://pocketppc.com/history/02-cpm-era/</guid>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+    <item>
+      <title>Before the Click: Direct Response Roots</title>
+      <link>https://pocketppc.com/history/01-before-the-click/</link>
+      <guid>https://pocketppc.com/history/01-before-the-click/</guid>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
+      <description>Part of The History of PPC, a ten-part history of paid search.</description>
+    </item>
+  </channel>
+</rss>

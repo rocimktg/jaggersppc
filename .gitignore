@@ -1,0 +1,6 @@
+.DS_Store
+
+# Image source masters / originals — kept locally, not served or tracked.
+# Only the optimized WebP derivatives used by the site are committed.
+images/*
+!images/*.webp

@@ -1,0 +1,973 @@
+/* ============================================================
+   APOTHECARY REVIVAL — tokens
+   ============================================================ */
+:root{
+  --ground:#F7F1E4;
+  --ground-2:#F0E8D6;
+  --ink:#1A1714;
+  --accent:#E8503A;   /* vermilion — results, the payoff */
+  --ochre:#D89A2C;    /* editorial furniture — fills & rules */
+  --ochre-ink:#8A5911;/* ochre dark enough for uppercase text on cream (WCAG AA) */
+  --sage:#9BB0A5;     /* quiet secondary voice — rules & large type */
+  --sage-ink:#526E5D; /* sage dark enough for text on cream */
+
+  --display:"Playfair Display",Didot,"Bodoni MT","Times New Roman",serif;
+  --gothic:"Oswald","Archivo Narrow","Haettenschweiler","Arial Narrow",sans-serif;
+  --body:"EB Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+
+  --measure:700px;
+  --rule-heavy:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%2210%22%20viewBox%3D%220%200%20240%2010%22%20preserveAspectRatio%3D%22none%22%3E%3Cpolygon%20points%3D%220%2C0.72%2010%2C3.36%2020%2C0.81%2030%2C0.3%2040%2C3.36%2050%2C0.15%2060%2C3.36%2070%2C1.11%2080%2C3.36%2090%2C3.36%20100%2C0.25%20110%2C0.85%20120%2C0.3%20130%2C0.05%20140%2C3.36%20150%2C0.83%20160%2C0.8%20170%2C0.73%20180%2C1.6%20190%2C1.34%20200%2C3.36%20210%2C0.46%20220%2C1.23%20230%2C1.35%20240%2C0.72%20240%2C9.1%20230%2C6.64%20220%2C9.36%20210%2C9.89%20200%2C9.63%20190%2C8.87%20180%2C8.41%20170%2C9.55%20160%2C8.94%20150%2C8.98%20140%2C8.65%20130%2C9.26%20120%2C9.61%20110%2C9.9%20100%2C9.98%2090%2C6.64%2080%2C8.46%2070%2C9.93%2060%2C8.7%2050%2C9.51%2040%2C8.73%2030%2C9.18%2020%2C9.06%2010%2C9.25%200%2C9.1%22%20fill%3D%22%23000%22%2F%3E%3C%2Fsvg%3E");
+  --rule-med:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%226%22%20viewBox%3D%220%200%20240%206%22%20preserveAspectRatio%3D%22none%22%3E%3Cpolygon%20points%3D%220%2C0.78%2010%2C1.15%2020%2C0.08%2030%2C0.4%2040%2C0.98%2050%2C1.09%2060%2C0.09%2070%2C0.69%2080%2C1.01%2090%2C0.89%20100%2C1.19%20110%2C1.17%20120%2C0.3%20130%2C0.41%20140%2C0.85%20150%2C0.12%20160%2C2.52%20170%2C1.12%20180%2C2.52%20190%2C0.85%20200%2C2.52%20210%2C1.16%20220%2C0.94%20230%2C0.69%20240%2C0.78%20240%2C5.16%20230%2C5.5%20220%2C5.58%20210%2C5.98%20200%2C5.79%20190%2C5.68%20180%2C5.8%20170%2C5.07%20160%2C5.1%20150%2C3.48%20140%2C5.37%20130%2C5.22%20120%2C5.27%20110%2C5.23%20100%2C5.99%2090%2C5.21%2080%2C5.07%2070%2C3.48%2060%2C3.48%2050%2C5.41%2040%2C5.78%2030%2C5.55%2020%2C5.01%2010%2C5.76%200%2C5.16%22%20fill%3D%22%23000%22%2F%3E%3C%2Fsvg%3E");
+  --rule-thin:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%222.5%22%20viewBox%3D%220%200%20240%202.5%22%20preserveAspectRatio%3D%22none%22%3E%3Cpolygon%20points%3D%220%2C0.03%208%2C0.1%2016%2C1.12%2024%2C1.12%2032%2C0.01%2040%2C1.12%2048%2C0.38%2056%2C1.12%2064%2C0.6%2072%2C0.26%2080%2C0.36%2088%2C0.54%2096%2C0.35%20104%2C0.26%20112%2C0.04%20120%2C0.59%20128%2C0.62%20136%2C0.07%20144%2C0.41%20152%2C0.48%20160%2C0.44%20168%2C0.63%20176%2C0.37%20184%2C0.12%20192%2C0.55%20200%2C0.41%20208%2C0.13%20216%2C0.68%20224%2C1.12%20232%2C0.55%20240%2C0.03%20240%2C2.01%20232%2C1.83%20224%2C1.38%20216%2C2.11%20208%2C2.08%20200%2C2.24%20192%2C2.46%20184%2C1.91%20176%2C2.01%20168%2C2.27%20160%2C1.95%20152%2C2.43%20144%2C1.85%20136%2C1.9%20128%2C2.13%20120%2C1.38%20112%2C1.84%20104%2C2.47%2096%2C2.1%2088%2C2.08%2080%2C2.15%2072%2C2.43%2064%2C1.93%2056%2C2.38%2048%2C1.38%2040%2C1.9%2032%2C2.2%2024%2C2.15%2016%2C1.94%208%2C2.18%200%2C2.01%22%20fill%3D%22%23000%22%2F%3E%3C%2Fsvg%3E");
+}
+
+*{box-sizing:border-box;border-radius:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17.5px;
+  line-height:1.55;
+  font-variant-numeric:oldstyle-num;
+}
+
+/* ============================================================
+   Distressed rules — masked SVG strips, never border-bottom
+   ============================================================ */
+.rule{
+  display:block;
+  background-color:var(--ink);
+  -webkit-mask-repeat:repeat-x; mask-repeat:repeat-x;
+  -webkit-mask-position:0 0; mask-position:0 0;
+}
+.rule--heavy{height:10px;-webkit-mask-image:var(--rule-heavy);mask-image:var(--rule-heavy);-webkit-mask-size:240px 10px;mask-size:240px 10px;background-color:var(--ochre)}
+.rule--med{height:6px;-webkit-mask-image:var(--rule-med);mask-image:var(--rule-med);-webkit-mask-size:240px 6px;mask-size:240px 6px;background-color:var(--ochre)}
+.rule--thin{height:2.5px;-webkit-mask-image:var(--rule-thin);mask-image:var(--rule-thin);-webkit-mask-size:240px 2.5px;mask-size:240px 2.5px;background-color:var(--sage)}
+.rule--space{margin:1.6rem 0}
+
+/* ============================================================
+   Panels — full-bleed bands with a single distressed top border
+   ============================================================ */
+.band{
+  position:relative;
+  padding:clamp(2.6rem,7vw,4.6rem) 1.25rem;
+  background:var(--ground);
+  overflow:hidden;
+}
+.band--alt{background:var(--ground-2)}
+.band::before{
+  content:"";
+  position:absolute;left:0;right:0;top:0;
+  height:8px;
+  background-color:var(--ochre);
+  -webkit-mask-image:var(--rule-med);mask-image:var(--rule-med);
+  -webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;
+  -webkit-mask-size:240px 8px;mask-size:240px 8px;
+}
+.band:first-of-type::before{display:none}
+
+.measure{
+  position:relative;
+  z-index:2;
+  max-width:var(--measure);
+  margin:0 auto;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+h1,h2,h3{margin:0;font-weight:400;line-height:1.05}
+
+.masthead-eyebrow{
+  font-family:var(--body);
+  font-style:italic;
+  font-size:clamp(1.2rem,3.4vw,1.8rem);
+  line-height:1.1;
+  letter-spacing:0.01em;
+  margin:0 0 0.5rem;
+  text-indent:0;
+  color:var(--sage-ink);
+}
+.masthead-title{
+  font-family:var(--body);
+  font-style:italic;
+  font-weight:700;
+  font-size:clamp(3.4rem,13vw,6.6rem);
+  letter-spacing:-0.01em;
+  line-height:0.95;
+}
+.standfirst{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(1.5rem,4.4vw,2.3rem);
+  line-height:1.18;
+  margin:1.4rem 0 0;
+  max-width:19ch;
+  color:var(--sage-ink);
+}
+.strike{text-decoration:line-through;text-decoration-thickness:1.5px}
+
+.masthead-cred{
+  margin:1.2rem 0 0;
+  font-family:var(--gothic);
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-size:0.82rem;
+  line-height:1.6;
+  color:var(--ochre-ink);
+}
+.masthead-avail{
+  margin:0.5rem 0 0;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-size:0.72rem;
+  line-height:1.5;
+  color:var(--sage-ink);
+}
+
+.section-head{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:clamp(1.05rem,2.6vw,1.35rem);
+  font-weight:500;
+  margin-bottom:1.1rem;
+  color:var(--ochre-ink);
+}
+
+.kicker{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.72rem;
+  font-weight:400;
+  color:var(--ochre-ink);
+}
+
+.case-title{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(1.9rem,5.2vw,2.7rem);
+  line-height:1.05;
+}
+.case + .case{
+  position:relative;
+  margin-top:2.8rem;
+  padding-top:2.8rem;
+}
+.case + .case::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;
+  height:2.5px;
+  background-color:var(--sage);
+  opacity:0.55;
+  -webkit-mask-image:var(--rule-thin);mask-image:var(--rule-thin);
+  -webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;
+  -webkit-mask-size:240px 2.5px;mask-size:240px 2.5px;
+}
+
+/* metric-led lockup: big red figure over a gothic label, flush left */
+.case-stat{
+  margin:0.4rem 0 1.4rem;
+  text-indent:0;
+}
+.case-stat-fig{
+  display:block;
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(2.4rem,6vw,3.4rem);
+  line-height:1;
+  color:var(--accent);
+  font-variant-numeric:lining-nums;
+}
+.case-stat-label{
+  display:block;
+  margin-top:0.45rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.74rem;
+  line-height:1.45;
+  color:var(--ochre-ink);
+}
+
+/* the three short entries after the featured case */
+.case--compact .case-title{font-size:clamp(1.5rem,3.6vw,1.9rem)}
+.case--compact .case-stat{margin-top:1rem}
+
+.lever-list{margin:0.9rem 0 0;padding:0;list-style:none}
+.lever-list li{
+  position:relative;
+  padding-left:1.15rem;
+  margin:0.5rem 0;
+  text-indent:0;
+  line-height:1.5;
+}
+.lever-list li::before{content:"\2022";position:absolute;left:0.2rem;color:var(--ochre)}
+
+/* engraved "cut" tucked top-right of a case study — ink straight on the stock */
+.case{display:flow-root}
+.case-figure{
+  float:right;
+  width:clamp(150px,32%,225px);
+  margin:0.3rem 0 0.9rem 1.7rem;
+}
+.case-figure .cut{
+  width:100%;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  mix-blend-mode:multiply;
+  /* lift the paper grain to pure white so multiply drops it into the page */
+  filter:contrast(1.13) brightness(1.07);
+}
+/* featured case — larger engraving, copy wraps around it */
+.case-figure--side{
+  width:clamp(200px,40%,290px);
+  margin:0.4rem 0 1rem 2rem;
+}
+/* keep block rules in the text column, not running behind the float */
+.case--featured > .rule{display:flow-root}
+.cut--fh{
+  aspect-ratio:1822 / 1792;
+  background-image:url("images/FH_Sketch.webp");
+}
+.cut--kubota{
+  aspect-ratio:2184 / 1537;
+  background-image:url("images/kubota_sketch.webp");
+}
+.cut--tkd{
+  aspect-ratio:1984 / 2122;
+  background-image:url("images/tkd_sketch.webp");
+}
+.case-figure--comet{width:clamp(130px,25%,178px)}
+.case-figure .cut--comet{
+  aspect-ratio:1632 / 2560;
+  background-image:url("images/comet_sketch_final.webp");
+  filter:contrast(1.1) brightness(1.06);
+}
+
+p{margin:0;text-indent:1.5em}
+p:first-of-type,.no-indent{text-indent:0}
+.sc{font-variant:small-caps;letter-spacing:0.035em;color:var(--sage-ink)}
+.fig{color:var(--accent);font-weight:600;font-variant-numeric:lining-nums}
+
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:0.22em}
+a:hover{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+abbr{text-decoration:underline dotted;text-decoration-color:var(--sage-ink);text-underline-offset:0.2em;cursor:help}
+
+/* ============================================================
+   Masthead
+   ============================================================ */
+.masthead{padding-top:clamp(1.4rem,4vw,2.2rem)}
+
+nav.primary{
+  display:flex;flex-wrap:wrap;gap:1rem;align-items:baseline;
+  margin:0 0 2.4rem;
+}
+nav.primary a{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.9rem;
+  text-decoration:none;
+}
+nav.primary a::before{content:"\261E\2009";text-decoration:none;color:var(--ochre)}
+nav.primary a:not(.cta):hover{text-decoration:underline;text-underline-offset:0.3em}
+
+/* Hire Me — call to action, in the nav and repeated in the footer */
+.cta{
+  display:inline-block;
+  padding:0.42rem 1.05rem;
+  background:var(--ink);
+  color:var(--ground);
+  border:1px solid var(--ink);
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.9rem;
+  line-height:1;
+  text-decoration:none;
+}
+.cta:hover{background:none;color:var(--ink);text-decoration:none}
+.cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav.primary a.cta{margin-left:auto;align-self:center;font-size:0.7rem;padding:0.34rem 0.82rem}
+nav.primary a.cta::before{content:none}
+.footer-cta{margin-bottom:1.7rem;padding:0.62rem 1.5rem;font-size:0.95rem}
+
+
+/* Masthead — text column beside engraved portrait */
+.masthead-body{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:clamp(1.6rem,4vw,2.6rem);
+  align-items:start;
+}
+.masthead-body > *{min-width:0}
+.masthead-portrait{
+  margin:0;
+  justify-self:center;
+  max-width:340px;
+}
+/* ink drawing sitting straight on the page — white knocked out by blend */
+.masthead-portrait .plate{
+  width:100%;
+  aspect-ratio:1684 / 2528;
+  background-image:url("images/sketch_portrait.webp");
+  background-size:cover;
+  background-position:top center;
+  background-repeat:no-repeat;
+  mix-blend-mode:multiply;
+  filter:contrast(1.04);
+}
+.masthead-portrait figcaption{
+  margin-top:0.6rem;
+  padding-top:0.5rem;
+  border-top:1px solid var(--sage);
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.72rem;
+  font-weight:400;
+  line-height:1.55;
+  color:var(--sage-ink);
+}
+.masthead-portrait figcaption .sep{
+  opacity:0.4;
+  padding:0 0.35em;
+}
+@media (min-width:760px){
+  .masthead-body{grid-template-columns:minmax(0,1fr) minmax(220px,300px)}
+  .masthead-portrait{justify-self:stretch;max-width:none}
+}
+
+/* ============================================================
+   Lists with dot leaders
+   ============================================================ */
+.leaders{list-style:none;margin:0;padding:0}
+.leaders li{
+  display:flex;align-items:baseline;gap:0.4rem;
+  padding:0.42rem 0;
+}
+.leaders .lead-title{flex:0 1 auto}
+.leaders .dots{
+  flex:1 1 auto;
+  border-bottom:1px dotted var(--ochre);
+  opacity:0.7;
+  transform:translateY(-0.28em);
+  min-width:1.5rem;
+}
+.leaders .lead-val{
+  flex:0 0 auto;
+  font-family:var(--gothic);
+  text-transform:uppercase;letter-spacing:0.1em;
+  font-size:0.72rem;
+  white-space:nowrap;
+  color:var(--ochre-ink);
+}
+.leaders a{text-decoration:none}
+.leaders a:hover{text-decoration:underline;text-underline-offset:0.25em}
+
+.inline-list{margin:0.6rem 0 0;text-indent:0;font-size:0.95rem}
+
+/* "What I do" — three labelled capability lines */
+.do-list{margin:0.7rem 0 0;display:grid;gap:0.8rem}
+.do-list > div{
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:0.3rem 1.4rem;
+  align-items:baseline;
+}
+.do-list dt{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  font-size:0.72rem;
+  color:var(--ink);
+}
+.do-list dd{margin:0;text-indent:0;font-size:0.95rem;line-height:1.55;color:var(--sage-ink)}
+@media (max-width:600px){
+  .do-list > div{grid-template-columns:1fr;gap:0.15rem}
+}
+
+/* ---- About Me: bio + side card / actions ---- */
+.about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 230px;
+  gap:clamp(1.4rem,4vw,2.6rem);
+  align-items:start;
+}
+.about-bio p + p{margin-top:1rem}
+
+.about-side{display:flex;flex-direction:column;gap:0.6rem}
+.about-actions{display:flex;flex-direction:column;gap:0.5rem}
+.about-btn{
+  display:block;
+  padding:0.6rem 0.85rem;
+  border:1px solid rgba(26,23,20,0.16);
+  background:var(--ground);
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.09em;
+  font-size:0.72rem;
+  color:var(--ink);
+  text-decoration:none;
+  transition:border-color .15s,color .15s;
+}
+.about-btn::before{content:"\261E\2009";color:var(--ochre)}
+.about-btn:hover{border-color:var(--ink);color:var(--accent)}
+.about-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+@media (max-width:680px){
+  .about-grid{grid-template-columns:1fr}
+}
+
+/* Tag / pill row — hard-edged boxes */
+.tags{
+  list-style:none;
+  margin:0.7rem 0 0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+}
+.tags li{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-size:0.72rem;
+  line-height:1;
+  padding:0.4rem 0.65rem;
+  border:1px solid var(--ochre);
+}
+
+.colophon-foot{
+  display:flex;flex-wrap:wrap;gap:0.9rem 1.4rem;
+  align-items:baseline;
+  font-family:var(--gothic);
+  text-transform:uppercase;letter-spacing:0.12em;
+  font-size:0.72rem;
+  margin-top:1.6rem;
+  color:var(--ochre-ink);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width:768px){
+  body{font-size:16.5px}
+  .masthead-title{font-size:clamp(2.6rem,15vw,4rem)}
+  .standfirst{font-size:1.35rem;max-width:32ch}
+  .section-head{letter-spacing:0.05em}
+  .kicker,.leaders .lead-val,.tags li,.colophon-foot,nav.primary a{letter-spacing:0.05em}
+  .leaders li{display:block;padding:0.6rem 0}
+  .leaders .dots{display:none}
+  .leaders .lead-val{display:block;margin-top:0.15rem;opacity:0.7}
+
+  /* masthead — one flush-left column, portrait no longer a centred island */
+  .masthead-body{gap:1.3rem}
+  .masthead-portrait{justify-self:start;max-width:min(280px,74%)}
+
+  /* case cuts become full-width header images — the float does nothing here */
+  .case-figure,
+  .case-figure--side,
+  .case-figure--comet{float:none;width:100%;margin:0 0 1.1rem}
+  /* the Comet sign is tall — keep it from eating a whole screen */
+  .case-figure--comet{width:72%}
+
+  /* lighten the section seams and tighten the case rhythm for a narrow screen */
+  .band::before{height:5px;-webkit-mask-size:240px 5px;mask-size:240px 5px}
+  .rule--heavy{height:7px;-webkit-mask-size:240px 7px;mask-size:240px 7px}
+  .case + .case{margin-top:2rem;padding-top:2rem}
+  .case-stat{margin-bottom:1rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* quiet mark, bottom-right */
+.pi-mark{
+  position:fixed;
+  right:1rem;bottom:0.75rem;
+  z-index:50;
+  font-family:var(--body);
+  font-size:1.15rem;
+  line-height:1;
+  color:#736A5C;
+  text-decoration:none;
+}
+.pi-mark:hover,.pi-mark:focus-visible{color:var(--accent)}
+
+/* ============================================================
+   Motion — press metaphors, opt-in via prefers-reduced-motion
+   ============================================================ */
+@media (prefers-reduced-motion:no-preference){
+  /* rules drawn on, left to right, as they enter the view
+     (full-bleed band borders are left static) */
+  html.js .rule,
+  html.js .case + .case::before{
+    clip-path:inset(0 100% 0 0);
+    transition:clip-path .85s cubic-bezier(.2,.75,.2,1);
+  }
+  html.js .rule.inked,
+  html.js .case.inked::before{clip-path:inset(0 0 0 0)}
+}
+
+/* ============================================================
+   ARTICLE PAGES — /history/*, /notes/*, /about/, /colophon/
+   ============================================================ */
+.site-head{padding-top:clamp(1.4rem,4vw,2.2rem);padding-bottom:clamp(1.4rem,4vw,2.2rem)}
+.site-head nav.primary{margin-bottom:0}
+
+.article-head{margin-bottom:2.6rem}
+.art-num{
+  font-family:var(--display);
+  font-style:italic;
+  color:var(--accent);
+  font-variant-numeric:lining-nums;
+  margin-right:0.2em;
+}
+.article-title{
+  font-family:var(--display);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(2.1rem,6vw,3.6rem);
+  line-height:1.04;
+  letter-spacing:-0.01em;
+  margin:0.55rem 0 0;
+}
+.article-head .standfirst{max-width:34ch}
+.article-meta{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.72rem;
+  color:var(--ochre-ink);
+  margin-top:1.5rem;
+}
+.article-meta i{font-style:normal;opacity:0.4;padding:0 0.55em}
+.article-meta time{font-variant-numeric:lining-nums}
+
+/* ---- body prose ---- */
+.prose{margin-top:2rem}
+.prose h2{
+  font-family:var(--display);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(1.5rem,3.4vw,1.95rem);
+  line-height:1.12;
+  color:var(--ochre-ink);
+  margin:2.7rem 0 0.9rem;
+  scroll-margin-top:1.5rem;
+}
+.prose h3{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.82rem;
+  margin:2rem 0 0.5rem;
+}
+.prose ul,.prose ol{margin:1rem 0 1rem 1.4rem;padding:0}
+.prose li{margin:0.35rem 0;text-indent:0}
+.prose li p{text-indent:0}
+.prose strong{font-weight:600}
+.prose hr{border:0;margin:2rem 0}
+
+/* inline glossary term — hover for the definition */
+.term{
+  text-decoration:underline dotted;
+  text-decoration-color:var(--sage-ink);
+  text-underline-offset:0.18em;
+  cursor:help;
+}
+
+/* elements that break past the reading measure, centred on the page */
+.prose .breakout{
+  width:min(880px, 100vw - 2.5rem);
+  margin-left:50%;
+  transform:translateX(-50%);
+}
+.prose .breakout + *{margin-top:0}
+
+/* ---- pull quote ---- */
+.pullquote{
+  margin-top:2.6rem;
+  margin-bottom:2.6rem;
+  padding:0;
+  font-family:var(--display);
+  font-style:italic;
+  color:var(--sage-ink);
+}
+.pullquote p{
+  margin:0;
+  text-indent:0;
+  font-size:clamp(1.45rem,3.6vw,2rem);
+  line-height:1.22;
+  max-width:30ch;
+}
+.pullquote cite{
+  display:block;
+  margin-top:0.8rem;
+  font-family:var(--gothic);
+  font-style:normal;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.68rem;
+  color:var(--ochre-ink);
+}
+
+/* ---- callout box ---- */
+.callout{
+  margin-top:2.6rem;
+  margin-bottom:2.6rem;
+  padding:1.4rem 1.6rem 1.6rem;
+  border:1px solid var(--ochre);
+}
+.callout .callout-label,
+.callout .callout__label{
+  display:block;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.68rem;
+  color:var(--ochre-ink);
+  margin-bottom:0.55rem;
+}
+.callout p{margin:0;text-indent:0}
+.callout p + p{margin-top:0.7rem}
+
+
+/* ---- series prev / next ---- */
+.series-nav{
+  margin-top:3.2rem;
+  padding-top:1.7rem;
+  position:relative;
+}
+.series-nav::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:6px;
+  background-color:var(--ochre);
+  -webkit-mask-image:var(--rule-med);mask-image:var(--rule-med);
+  -webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;
+  -webkit-mask-size:240px 6px;mask-size:240px 6px;
+}
+.series-nav-position,.series-nav__position{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.7rem;
+  color:var(--ochre-ink);
+  margin-bottom:0.9rem;
+}
+.series-dots{list-style:none;display:flex;gap:0.4rem;margin:0 0 1.3rem;padding:0}
+.series-dots li{width:0.5rem;height:0.5rem;border:1px solid var(--sage)}
+.series-dots li.is-current{background:var(--accent);border-color:var(--accent)}
+.series-nav-links,.series-nav__links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.4rem;
+}
+.series-nav-links a,.series-nav__links a{text-decoration:none;display:block}
+.series-nav-links .next,.series-nav__links .next{text-align:right}
+/* first article has only a Next link — keep it in the right column */
+.series-nav-links .next:only-child,.series-nav__links .next:only-child{grid-column:2}
+.series-nav-links .dir,.series-nav__links .dir{
+  display:block;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.68rem;
+  color:var(--ochre-ink);
+  margin-bottom:0.35rem;
+}
+.series-nav-links .t,.series-nav__links .t,
+.series-nav-links .title,.series-nav__links .title{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:1.08rem;
+  line-height:1.2;
+}
+.series-nav-links a:hover .t,.series-nav__links a:hover .t,
+.series-nav-links a:hover .title,.series-nav__links a:hover .title{color:var(--accent)}
+
+/* ---- data tables inside prose ---- */
+.prose figure{margin:2rem 0;text-indent:0}
+.prose table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.92rem;
+  font-variant-numeric:lining-nums;
+}
+.prose th,.prose td{
+  text-align:left;
+  padding:0.5rem 0.8rem;
+  border-bottom:1px solid rgba(26,23,20,0.15);
+}
+.prose thead th{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-size:0.68rem;
+  color:var(--ochre-ink);
+  border-bottom:1.5px solid var(--ochre);
+}
+.prose figcaption{
+  margin-top:0.5rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.66rem;
+  color:var(--sage-ink);
+}
+
+/* ---- a11y helpers ---- */
+.skip-link{position:absolute;left:-9999px}
+.skip-link:focus{left:1rem;top:1rem;z-index:99;background:var(--ink);color:var(--ground);padding:0.5rem 0.9rem}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+@media (max-width:768px){
+  .prose .breakout{width:100%;margin-left:0;transform:none}
+  .series-nav-links,.series-nav__links{grid-template-columns:1fr;gap:1rem}
+  .series-nav-links .next,.series-nav__links .next{text-align:left}
+  .series-nav-links .next:only-child,.series-nav__links .next:only-child{grid-column:1}
+  .callout{padding:1.1rem 1.2rem 1.3rem}
+}
+
+/* ---- key statistic (history "The Bid") ---- */
+.keystat{
+  margin-top:2.8rem;
+  margin-bottom:2.8rem;
+  padding-top:1.4rem;
+  position:relative;
+}
+.keystat::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:2.5px;
+  background-color:var(--sage);opacity:0.55;
+  -webkit-mask-image:var(--rule-thin);mask-image:var(--rule-thin);
+  -webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;
+  -webkit-mask-size:240px 2.5px;mask-size:240px 2.5px;
+}
+.keystat__label,.keystat-label{
+  display:block;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.68rem;
+  color:var(--ochre-ink);
+}
+.keystat__value,.keystat-value{
+  display:block;
+  margin:0.35rem 0 0.5rem;
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(2rem,5vw,2.9rem);
+  line-height:1.05;
+  color:var(--accent);
+  font-variant-numeric:lining-nums;
+}
+.keystat__note,.keystat-note{margin:0;text-indent:0;font-size:0.96rem}
+
+/* ---- formula / equation display ---- */
+.formula,.eq{
+  margin:2rem 0;
+  padding:1rem 0;
+  text-align:center;
+  text-indent:0;
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(1.3rem,3.4vw,1.75rem);
+  line-height:1.3;
+  color:var(--ink);
+  font-variant-numeric:lining-nums;
+}
+.formula b,.eq b{
+  font-weight:400;
+  font-style:normal;
+  color:var(--accent);
+  font-variant:small-caps;
+  letter-spacing:0.03em;
+}
+
+/* ---- note footer nav ---- */
+.note-foot{
+  margin-top:3rem;
+  padding-top:1.6rem;
+  position:relative;
+}
+.note-foot::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:6px;
+  background-color:var(--ochre);
+  -webkit-mask-image:var(--rule-med);mask-image:var(--rule-med);
+  -webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;
+  -webkit-mask-size:240px 6px;mask-size:240px 6px;
+}
+.note-foot a{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.78rem;
+  text-decoration:none;
+}
+.note-foot a:hover{color:var(--accent)}
+
+/* ---- index pages: /notes/, /history/, /about/, /colophon/ ---- */
+.index-head{margin-bottom:2.4rem}
+.index-head h1{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(2.4rem,7vw,4rem);
+  line-height:1;
+}
+.index-head > p{margin-top:1rem;text-indent:0;max-width:46ch;color:var(--sage-ink);font-size:1.05rem}
+.flow > * + *{margin-top:1rem}
+.flow p{text-indent:0}
+.flow ol,.flow ul{margin:0.4rem 0 0.4rem 1.4rem;padding:0}
+.flow li{margin:0.3rem 0}
+.flow code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:0.9em}
+
+.note-list{list-style:none;margin:0;padding:0}
+.note-list__heading,.note-list-heading{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.72rem;
+  color:var(--ochre-ink);
+  padding-bottom:0.6rem;
+}
+.note-list > li:not(.note-list__heading):not(.note-list-heading){
+  padding:1.3rem 0;
+  border-top:1px solid rgba(26,23,20,0.14);
+}
+.note-list time{
+  display:block;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.68rem;
+  color:var(--ochre-ink);
+  margin-bottom:0.35rem;
+}
+.note-list > li > a{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);
+  line-height:1.15;
+  text-decoration:none;
+}
+.note-list > li > a:hover{color:var(--accent)}
+.note-list .dek{margin-top:0.5rem;text-indent:0;font-size:0.98rem;color:var(--sage-ink)}
+
+/* history index — the ten-part list */
+.series-index{list-style:none;margin:0;padding:0;counter-reset:none}
+.series-index li{
+  padding:1.1rem 0;
+  border-top:1px solid rgba(26,23,20,0.14);
+  display:grid;
+  grid-template-columns:2.5rem 1fr;
+  gap:0.2rem 1rem;
+  align-items:baseline;
+}
+.series-index .s-num{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:1.5rem;
+  color:var(--accent);
+  font-variant-numeric:lining-nums;
+}
+.series-index a{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(1.2rem,3vw,1.5rem);
+  line-height:1.15;
+  text-decoration:none;
+}
+.series-index a:hover{color:var(--accent)}
+.series-index .s-meta{
+  grid-column:2;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.66rem;
+  color:var(--ochre-ink);
+  margin-top:0.15rem;
+}
+@media (max-width:768px){
+  .series-index li{grid-template-columns:1fr}
+  .series-index .s-meta{grid-column:1}
+}
+
+/* ---- article cards on the homepage ---- */
+.card-grid{
+  list-style:none;
+  margin:1.3rem 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0.7rem;
+}
+.art-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:0.85rem 0.95rem 0.95rem;
+  border:1px solid rgba(26,23,20,0.16);
+  transition:border-color .15s;
+}
+.art-card:hover,
+.art-card:focus-within{border-color:var(--ink)}
+.art-card-tag{
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.11em;
+  font-size:0.6rem;
+  color:var(--ochre-ink);
+}
+.art-card-title{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:1.16rem;
+  line-height:1.14;
+  margin:0.22rem 0 0;
+  text-decoration:none;
+  transition:color .15s;
+}
+/* the title link stretches to cover the whole card, so a click or tap
+   anywhere on the card follows it */
+.art-card-title::after{content:"";position:absolute;inset:0}
+.art-card:hover .art-card-title,
+.art-card:focus-within .art-card-title{color:var(--accent)}
+@supports selector(:has(*)){
+  .art-card:has(.art-card-title:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+  .art-card-title:focus-visible{outline:none}
+}
+.art-card-desc{
+  margin:0.4rem 0 0;
+  text-indent:0;
+  font-size:0.85rem;
+  line-height:1.34;
+  color:var(--sage-ink);
+}
+@media (max-width:600px){
+  .card-grid{gap:0.5rem}
+  .art-card{padding:0.7rem 0.7rem 0.75rem}
+  .art-card-title{font-size:1.02rem}
+  .art-card-desc{font-size:0.8rem;line-height:1.3}
+}
+
+.writing-more{
+  margin:1.5rem 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.6rem;
+  font-family:var(--gothic);
+  text-transform:uppercase;
+  letter-spacing:0.09em;
+  font-size:0.74rem;
+}
+.writing-more a{text-decoration:none;color:var(--ochre-ink)}
+.writing-more a:hover{color:var(--accent)}

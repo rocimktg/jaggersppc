@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Arithmetic That Built Search &mdash; PocketPPC</title>
+<meta name="description" content="How a handful of equations turned attention into a priced commodity and shaped the whole discipline of paid search.">
+<link rel="canonical" href="https://pocketppc.com/notes/the-arithmetic-that-built-search/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PocketPPC">
+<meta property="og:title" content="The Arithmetic That Built Search">
+<meta property="og:description" content="How a handful of equations turned attention into a priced commodity.">
+<meta property="og:url" content="https://pocketppc.com/notes/the-arithmetic-that-built-search/">
+<meta property="article:published_time" content="2026-09-03">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Arithmetic That Built Search",
+    "description": "How a handful of equations turned attention into a priced commodity.",
+    "datePublished": "2026-09-03",
+    "author": { "@type": "Person", "name": "JJ Jaggers" },
+    "publisher": { "@type": "Organization", "name": "PocketPPC" },
+    "mainEntityOfPage": "https://pocketppc.com/notes/the-arithmetic-that-built-search/"
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="band masthead site-head">
+  <div class="measure">
+    <nav class="primary" aria-label="Primary">
+      <a href="/#work">Work</a>
+      <a href="/#writing">Writing</a>
+      <a href="/#contact">Contact</a>
+      <a class="cta" href="mailto:jjaggerstx@gmail.com?subject=Paid%20search%20role">Hire Me</a>
+    </nav>
+  </div>
+</header>
+<article class="band" id="main">
+  <div class="measure">
+    <header class="article-head">
+      <p class="kicker no-indent">Note &middot; Mechanics</p>
+      <h1 class="article-title">The Arithmetic That Built Search</h1>
+      <span class="rule rule--heavy rule--space"></span>
+      <p class="standfirst no-indent">How a handful of equations turned attention into a priced commodity.</p>
+      <p class="article-meta no-indent">JJ Jaggers<i>&mdash;</i><time datetime="2026-09-03">September 3, 2026</time></p>
+    </header>
+    <div class="prose">
+<h2 id="before-the-math">1. Before the math: advertising sold by the yard</h2>
+
+        <p>The first search ads were priced the way newspaper ads were priced. In 1996 Open Text and Infoseek sold placement in results at a flat negotiated rate, and early banner inventory sold on CPM. The only arithmetic involved was impressions multiplied by a rate card. Nobody knew what an impression was worth because nobody measured what happened after it.</p>
+
+        <p>That model had a structural flaw. The seller had no way to allocate a scarce slot to the buyer who valued it most, and the buyer had no way to discover what the slot was actually worth. Price was set by negotiation, which meant it was set by whoever had the better salesperson.</p>
+
+        <h2 id="goto">2. GoTo.com and the first bid formula</h2>
+
+        <p><a href="/history/03-the-auction/">Bill Gross launched GoTo.com</a> in February 1998 with the simplest possible ranking rule:</p>
+
+        <div class="eq">Rank = <b>Bid</b></div>
+
+        <p>Highest bidder took position one. Winners paid exactly what they bid, a first-price auction. Bids were public.</p>
+
+        <p>Two things happened immediately, and both of them are the reason modern PPC looks the way it does.</p>
+
+        <p><strong>The sawtooth.</strong> Because bids were visible and pricing was first-price, the rational move was to outbid the advertiser above you by the smallest increment, one cent. That advertiser then outbid you back. The pair escalated toward their true value ceilings, and whoever hit their ceiling first dropped to the reserve price and started climbing again. The system had no stable pure-strategy equilibrium. It produced a permanent cyclical bid war that consumed enormous advertiser attention and left the auctioneer&rsquo;s revenue oscillating rather than settling.</p>
+
+        <p><strong>The revenue mismatch.</strong> This is the deeper flaw, and it&rsquo;s the single most consequential piece of arithmetic in the industry&rsquo;s history. GoTo ranked by bid, but GoTo got paid per click. Its actual revenue from a slot was not the bid. It was:</p>
+
+        <div class="eq">Expected revenue per impression = <b>Bid</b> &times; <b>CTR</b></div>
+
+        <p>Consider two advertisers competing for one slot, 1,000 impressions:</p>
+
+        <figure class="table">
+          <table>
+            <thead>
+              <tr><th scope="col">Advertiser</th><th scope="col">Bid</th><th scope="col">CTR</th><th scope="col">Revenue per 1,000 impressions</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A</td><td>$4.00</td><td>1%</td><td>$40</td></tr>
+              <tr><td>B</td><td>$2.00</td><td>4%</td><td>$80</td></tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <p>Rank-by-bid puts A on top and earns the platform $40. The advertiser with half the bid was worth twice as much. A pure bid auction systematically misallocates inventory, underprices the seller&rsquo;s real asset, and degrades the results page by promoting ads nobody wants to click.</p>
+
+        <h2 id="february-2002">3. February 2002: three innovations in one release</h2>
+
+        <p>Google launched AdWords in October 2000 on a CPM model sold by a sales team. <a href="/history/04-relevance-beats-money/">In February 2002 it relaunched as AdWords Select</a> and changed three things simultaneously.</p>
+
+        <p><strong>Pricing moved to cost-per-click.</strong> Risk shifted from the buyer to the seller. Google now got paid only when it delivered a user who acted.</p>
+
+        <p><strong>Ranking moved to expected value.</strong> The ranking function became:</p>
+
+        <div class="eq"><b>Ad Rank</b> = Bid &times; Predicted CTR</div>
+
+        <p>This is the equation that made search advertising work. It aligns the platform&rsquo;s revenue with user behavior. An irrelevant ad cannot buy its way to the top, because its low predicted CTR discounts its bid. Relevance stopped being an editorial policy and became a pricing input.</p>
+
+        <p><strong>Pricing moved to generalized second price.</strong> You no longer paid your bid. You paid the minimum required to hold your position:</p>
+
+        <div class="eq">CPC = (Ad Rank of the advertiser below you) &divide; (your quality signal) + $0.01</div>
+
+        <p>Work an example. Three advertisers, quality signals on an arbitrary scale:</p>
+
+        <figure class="table">
+          <table>
+            <thead>
+              <tr><th scope="col">Advertiser</th><th scope="col">Bid</th><th scope="col">Quality</th><th scope="col">Ad Rank</th><th scope="col">Position</th><th scope="col">Price paid</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A</td><td>$3.00</td><td>8</td><td>24</td><td>1</td><td>20 &divide; 8 + .01 = <strong>$2.51</strong></td></tr>
+              <tr><td>B</td><td>$5.00</td><td>4</td><td>20</td><td>2</td><td>12 &divide; 4 + .01 = <strong>$3.01</strong></td></tr>
+              <tr><td>C</td><td>$2.00</td><td>6</td><td>12</td><td>3</td><td>reserve</td></tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <p>B bid 67% more than A, ranked below A, and paid 20% more per click. That single table is the entire commercial argument for Quality Score, and it terminated the penny war. Under GSP, incrementally raising your bid does not raise your price unless it changes your position. The obsessive minute-by-minute bid monitoring that GoTo required became pointless.</p>
+
+        <p>GSP is not truthful in the way a Vickrey auction is; Edelman, Ostrovsky and Schwarz (2007) and Varian (2007) both showed it admits stable envy-free equilibria rather than dominant-strategy truthfulness. But it was stable enough, and it was explicable to advertisers in a way VCG never was. Yahoo, which had acquired Overture (the renamed GoTo), spent five years fighting Google&rsquo;s monetization gap before finally adopting quality-weighted ranking in its Panama rebuild.</p>
+
+        <p><strong>The asymmetry buried in the formula.</strong> Your bid appears only in the numerator of your Ad Rank. Your quality appears in your Ad Rank <em>and</em> in the denominator of your price. Doubling your bid may raise your rank and never changes your price at a fixed position. Halving your quality lowers your rank <em>and</em> roughly doubles what you pay for the position you keep. Quality is a two-sided lever. Bid is one-sided. Everything advertisers were later taught about landing pages and ad relevance descends from that denominator.</p>
+
+        <h2 id="predicted-ctr">4. The statistics problem hiding inside &ldquo;Predicted CTR&rdquo;</h2>
+
+        <p>The 2002 equation contains a term that cannot be observed, only estimated. Predicting CTR turned out to be a harder problem than running the auction, and solving it is what actually created the technical moat.</p>
+
+        <p><strong>Sparse data and shrinkage.</strong> An ad with 2 clicks in 40 impressions does not have a 5% CTR. The estimate is nearly meaningless. The standard fix is Bayesian smoothing on a Beta-Binomial conjugate model:</p>
+
+        <div class="eq">Smoothed CTR = (clicks + &alpha;) &divide; (impressions + &alpha; + &beta;)</div>
+
+        <p>With a category prior of 3% and a prior strength equivalent to 200 impressions (&alpha; = 6, &beta; = 194), that ad&rsquo;s estimate becomes (2 + 6) &divide; (40 + 200) = <strong>3.33%</strong>, not 5%. As real data accumulates the prior washes out. This is why Quality Score starts at a neutral value for a new keyword and why it takes volume to move.</p>
+
+        <p><strong>Position bias.</strong> Observed CTR confounds ad quality with slot position. A mediocre ad in position 1 outclicks a strong ad in position 4. The models had to decompose observed clicks into a separable form, roughly:</p>
+
+        <div class="eq">CTR(ad, position) &asymp; quality(ad) &times; discount(position)</div>
+
+        <p>Only the quality term belongs in Ad Rank. This is the reason Quality Score is defined as <em>position-normalized</em> expected clickthrough rate, a phrase that is otherwise inexplicable.</p>
+
+        <p><strong>Exploration versus exploitation.</strong> A new ad has no click history, so its estimate is pure prior. The only way to learn its true rate is to serve it, which costs revenue if it&rsquo;s bad. This is a multi-armed bandit problem, and it&rsquo;s why new creative gets an impression allocation it hasn&rsquo;t earned and why the system will not converge if you keep resetting it.</p>
+
+        <p><strong>Calibration over accuracy.</strong> By the mid-2000s all three major engines had converged on regularized logistic regression over enormous sparse hashed feature spaces, later refined into online learning methods like FTRL-Proximal (McMahan et al., 2013). The objective was log loss, not classification accuracy, for a specific reason: the model output gets multiplied by a dollar bid. A classifier that ranks correctly but outputs 0.04 when the truth is 0.02 will misprice every auction it touches. Calibration is a pricing requirement, not a modeling preference.</p>
+
+        <h2 id="advertiser-arithmetic">5. The advertiser&rsquo;s arithmetic</h2>
+
+        <p>The same period produced the buy-side formulas that still define the job.</p>
+
+        <p><strong>The funnel identity:</strong></p>
+
+        <div class="eq">Conversions = Impressions &times; CTR &times; CVR<br>Revenue = Impressions &times; CTR &times; CVR &times; AOV</div>
+
+        <p><strong>Breakeven bid from unit economics:</strong></p>
+
+        <div class="eq"><b>Max CPC</b> = Value per conversion &times; CVR</div>
+
+        <p>A $100 contribution margin at 2% conversion rate supports a $2.00 click. This is the calculation that separated performance advertising from brand advertising, because for the first time a media buy had a defensible ceiling derived from the P&amp;L rather than from last year&rsquo;s budget.</p>
+
+        <p><strong>The identity chain:</strong></p>
+
+        <div class="eq">CPA = CPC &divide; CVR &nbsp;&nbsp;and&nbsp;&nbsp; ROAS = (AOV &times; CVR) &divide; CPC</div>
+
+        <p><strong>Breakeven ROAS = 1 &divide; gross margin.</strong> At 40% margin, breakeven is 2.5.</p>
+
+        <p><strong>Marginal versus average.</strong> This is the concept that most accounts still get wrong, and it&rsquo;s pure arithmetic:</p>
+
+        <figure class="table">
+          <table>
+            <thead>
+              <tr><th scope="col">&nbsp;</th><th scope="col">Clicks</th><th scope="col">CPC</th><th scope="col">Spend</th><th scope="col">Revenue</th><th scope="col">ROAS</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Current bid</td><td>1,000</td><td>$2.00</td><td>$2,000</td><td>$10,000</td><td>5.0</td></tr>
+              <tr><td>Higher bid</td><td>1,400</td><td>$2.60</td><td>$3,640</td><td>$12,000</td><td>3.3</td></tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <p>Average ROAS at the higher bid still looks acceptable at 3.3 against a 2.5 breakeven. But the <em>incremental</em> $1,640 bought $2,000 of revenue. Marginal ROAS is 1.22, well underwater. Profit maximization happens where marginal ROAS equals breakeven, not where average ROAS does. Raising bids always makes the average look better than the last dollar deserves.</p>
+
+        <p><strong>The significance wall.</strong> Testing at the keyword level runs into a hard statistical limit. For 80% power at 95% confidence, a workable approximation is:</p>
+
+        <div class="eq">n &asymp; 16 &times; p(1&minus;p) &divide; &delta;&sup2;</div>
+
+        <p>To detect a 20% relative lift on a 3% conversion rate (&delta; = 0.006): n &asymp; 16 &times; 0.0291 &divide; 0.000036 &asymp; <strong>12,900 clicks per variant</strong>. At a $3 CPC, that&rsquo;s roughly $78,000 to run one two-arm test to conclusion.</p>
+
+        <p>Almost no keyword in almost no account ever accumulates that much data. This one inequality shaped the structure of the entire discipline. It forced aggregation upward into ad groups, campaigns, and portfolios; it made keyword-level manual bid management statistically indefensible at scale even while it remained standard practice; and it supplied the legitimate technical argument for <a href="/history/09-the-machines-take-the-wheel/">automated bidding</a>, which pools signals across an account and across the whole network. That the argument is also extremely convenient for the platform doesn&rsquo;t make it wrong. It does mean the argument and the marketing should be evaluated separately.</p>
+
+        <h2 id="reshaped-search">6. How the arithmetic reshaped search itself</h2>
+
+        <p><strong>It made relevance profitable.</strong> Because Ad Rank is bid times predicted CTR, the ad system&rsquo;s revenue is maximized by showing ads people actually want. No other ad medium of that era had that property. It&rsquo;s the reason paid search was tolerated by users while display advertising was fought with blockers, and the reason search ads got to sit at the top of the page instead of the margins.</p>
+
+        <p><strong>It made the long tail biddable.</strong> A meaningful share of daily queries have never been seen before, which means no advertiser can enumerate them. Exact string matching starves the models of data. The answer was to loosen matching and move the prediction problem from keyword to query, pooling statistical strength across semantically related demand. Broad match exists because of a data-sparsity constraint before it exists as a monetization strategy.</p>
+
+        <p><strong>It built the measurement industry.</strong> Pay-per-click plus a measurable downstream action creates an optimization loop. Analytics platforms, tag managers, attribution models, conversion APIs, and server-side tracking all exist to close that loop, and all of them are downstream of the decision to price by the click in 2002.</p>
+
+        <p><strong>It created a compounding data advantage.</strong> More queries yield better CTR models, which yield better ranking, which yield more revenue and more advertisers, which yields more queries. The auction&rsquo;s efficiency depends on prediction quality, and prediction quality depends on scale. That loop is why search consolidated.</p>
+
+        <p><strong>It ended advertiser price transparency.</strong> The original GSP formula was computable on a napkin. It no longer is. Ad Rank thresholds vary by query and context, auction-time bidding adjusts bids per impression on signals the advertiser cannot see, and the ranking function itself has not been a clean expected-revenue rule for a long time. Academic work on position auctions explored generalizations of the form:</p>
+
+        <div class="eq">Rank = Bid &times; Quality<sup>s</sup></div>
+
+        <p>where s = 1 gives pure expected-revenue ranking and s = 0 collapses back to GoTo&rsquo;s rank-by-bid. Tuning that exponent, sometimes called squashing, shifts revenue between the platform and advertisers without changing anything an advertiser can observe. Testimony in the 2023 US antitrust proceedings also surfaced randomization among closely-ranked advertisers. The mechanism went from arithmetic an advertiser could audit to a system they can only measure empirically.</p>
+
+        <p><strong>It pushed bidding from judgment to prediction.</strong> Follow the 2002 equation to its conclusion. If bid should equal value times probability, and machines estimate probability better than people, then bid-setting is a forecasting task, not a strategic one. <a href="/history/09-the-machines-take-the-wheel/">Smart Bidding</a> is the logical terminus of the founding formula, not a departure from it.</p>
+
+        <p>Where human judgment still holds is precisely where the arithmetic is misspecified. The system optimizes the conversions it observes, which are correlational, not causal. It optimizes revenue unless you feed it margin. It optimizes the conversion window you defined, not lifetime value. It cannot distinguish a click that caused a sale from a click that intercepted one. Every serious remaining lever in the discipline sits in that gap: incrementality testing, geo holdouts, margin-adjusted conversion values, and offline conversion import. The auction&rsquo;s math is settled. What you feed into it is not.</p>
+
+        <h2 id="sources">Sources worth reading in the original</h2>
+
+        <ul>
+          <li>Edelman, Ostrovsky &amp; Schwarz, <em>Internet Advertising and the Generalized Second-Price Auction</em> (AER, 2007)</li>
+          <li>Varian, <em>Position Auctions</em> (IJIO, 2007)</li>
+          <li>Lahaie &amp; Pennock, <em>Revenue Analysis of a Family of Ranking Rules for Keyword Auctions</em> (2007)</li>
+          <li>McMahan et al., <em>Ad Click Prediction: a View from the Trenches</em> (KDD, 2013)</li>
+        </ul>
+    </div>
+    <nav class="note-foot breakout" aria-label="Note navigation">
+          <a href="/notes/">&larr; All notes</a>
+        </nav>
+  </div>
+</article>
+<footer class="band">
+  <div class="measure">
+    <p class="colophon-foot no-indent">
+      <a href="/notes/">Notes</a>
+      <a href="/about/">About</a>
+      <a href="/colophon/">Colophon</a>
+      <a href="/rss.xml">RSS</a>
+      <span>&copy; <span id="yr">2026</span> PocketPPC</span>
+    </p>
+  </div>
+</footer>
+<script src="/site.js" defer></script>
+</body>
+</html>

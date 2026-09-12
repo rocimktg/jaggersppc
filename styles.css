@@ -263,8 +263,9 @@ h1,h2,h3{margin:0;font-weight:400;line-height:1.05}
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  mix-blend-mode:multiply;
-  /* lift the paper grain to pure white so multiply drops it into the page */
+  /* artwork is true alpha (transparent ground, opaque ink) so plain
+     compositing already sits it on the page; mix-blend-mode isn't needed
+     and was inconsistent across floated/stacked contexts (e.g. Comet) */
   filter:contrast(1.13) brightness(1.07);
 }
 /* featured case — larger engraving, copy wraps around it */
@@ -369,7 +370,7 @@ nav.primary a.cta::before{content:none}
   justify-self:center;
   max-width:340px;
 }
-/* ink drawing sitting straight on the page — white knocked out by blend */
+/* ink drawing sitting straight on the page — true alpha, no blend needed */
 .masthead-portrait .plate{
   width:100%;
   aspect-ratio:1684 / 2528;
@@ -377,7 +378,6 @@ nav.primary a.cta::before{content:none}
   background-size:cover;
   background-position:top center;
   background-repeat:no-repeat;
-  mix-blend-mode:multiply;
   filter:contrast(1.04);
 }
 .masthead-portrait figcaption{
